@@ -13,7 +13,7 @@ target
 .project
 
 # The following files are generated/updated by vaadin-maven-plugin
-test-webapp/node_modules/
+test-webapp-embedded/node_modules/
 
 webpack.generated.js
-test-webapp/frontend/generated
+test-webapp-embedded/frontend/generated

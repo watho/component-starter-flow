@@ -8,8 +8,8 @@
       <artifactId>component-starter-flow</artifactId>
       <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>test-webapp</artifactId>
-    <name>test-webapp</name>
+    <artifactId>test-webapp-embedded</artifactId>
+    <name>test-webapp-embedded</name>
     <packaging>jar</packaging>
 
     <properties>

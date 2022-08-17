@@ -3,7 +3,7 @@
 An archetype for your reusable component projects. Introduces two Maven modules:
 * The actual component sources (both Java and JavaScript) placed in the [my-component](my-component) module;
   this module builds as a jar which you can publish to your Nexus and depend on in your projects.
-* A [test-webapp](test-webapp) which you use to run the component in Vaadin env, to
+* A [test-webapp-embedded](test-webapp-embedded) which you use to run the component in Vaadin env, to
   develop the component further. This module is not published anywhere, and it uses
   embedded jetty: it starts fast and you launch it as a simple `main()` method.
 
@@ -16,9 +16,11 @@ for more details.
 
 Clone this github repository and import the project to the IDE of your choice as a Maven project. You need to have Java 11+ installed.
 
+### Embedded
+
 To run quickly from the command-line in development mode:
 
-1. Run `./mvnw -C clean install && cd test-webapp && mvn exec:java`
+1. Run `./mvnw -C clean install && cd test-webapp-embedded && mvn exec:java`
 2. Your app will be running on [http://localhost:8080](http://localhost:8080).
 
 To run the app from your IDE:
@@ -30,10 +32,12 @@ To run the app from your IDE:
    and will start in development mode.
 4. Your app will be running on [http://localhost:8080](http://localhost:8080).
    
-See [Main.java](test-webapp/src/main/java/com/vaadin/starter/skeleton/Main.java)
+See [Main.java](test-webapp-embedded/src/main/java/com/vaadin/starter/skeleton/Main.java)
 for details on how Jetty is configured for embedded mode.
 
-### Missing `/src/main/webapp`?
+
+
+## Missing `/src/main/webapp`?
 
 Yeah, since we're not packaging to WAR but to uberjar/zip+jar, the `webapp` folder needs to be
 served from the jar itself, and therefore it needs to reside in `src/main/resources/webapp`.
