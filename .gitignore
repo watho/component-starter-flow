@@ -1,4 +1,4 @@
-/target/
+target
 
 # IDEA
 .idea/
@@ -13,7 +13,7 @@
 .project
 
 # The following files are generated/updated by vaadin-maven-plugin
-node_modules/
+test-webapp/node_modules/
 
 webpack.generated.js
-frontend/generated
+test-webapp/frontend/generated
