@@ -5,6 +5,7 @@ import com.github.mvysny.kaributesting.v10.Routes;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.starter.mycomponent.MyComponent;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -69,13 +70,6 @@ public class MainViewTest {
 
     @Test
     public void testGreeting() {
-        // simulate an user input
-        _setValue(_get(TextField.class, spec -> spec.withCaption("Your name")), "Martin");
-
-        // simulate a button click as if clicked by the user
-        _click(_get(Button.class, spec -> spec.withCaption("Say hello")));
-
-        // check that the notification has been shown
-        expectNotifications("Hello Martin");
+        _assertOne(MyComponent.class);
     }
 }
