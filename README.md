@@ -35,7 +35,16 @@ To run the app from your IDE:
 See [Main.java](test-webapp-embedded/src/main/java/com/vaadin/starter/skeleton/Main.java)
 for details on how Jetty is configured for embedded mode.
 
+Advantages of the embedded setup:
 
+* Starts fast
+* Easy to run and debug in any IDE
+* Changes in Java class files are picked in debug mode automatically - just reload the page to see the new version
+  * Alternatively follow the [Vaadin hotswap-agent](https://vaadin.com/docs/latest/configuration/live-reload/hotswap-agent)
+    tutorial for even better hot reload.
+
+Disadvantages:
+* Changes done in `my-component.js` are not picked, you will have to re-launch the app.
 
 ## Missing `/src/main/webapp`?
 
