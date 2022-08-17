@@ -12,10 +12,6 @@
     <name>test-webapp</name>
     <packaging>war</packaging>
 
-    <properties>
-        <failOnMissingWebXml>false</failOnMissingWebXml>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.example</groupId>
@@ -49,6 +45,14 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version> <!-- use newest to fix compatibility issue with Java 17 -->
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
             </plugin>
 
             <plugin>
