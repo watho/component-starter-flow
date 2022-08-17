@@ -1,39 +1,39 @@
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/vaadin-flow/Lobby#?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/mvysny/vaadin14-embedded-jetty)
 
-# Vaadin 23 running in Embedded Jetty
+# Vaadin Component Starter
 
-A demo project showing the possibility of running a Vaadin 23 app from an
-embedded Jetty, as a simple `main()` method.
+An archetype for your reusable component projects. Introduces two Maven modules:
+* The actual component sources (both Java and JavaScript) placed in the [my-component](my-component) module;
+  this module builds as a jar which you can publish to your Nexus and depend on in your projects.
+* A [test-webapp](test-webapp) which you use to run the component in Vaadin env, to
+  develop the component further. This module is not published anywhere, and it uses
+  embedded jetty: it starts fast and you launch it as a simple `main()` method.
 
 Both the development and production modes are supported. Also, the project
 demoes packaging itself both into a flatten uberjar and a zip file containing
 a list of jars and a runner script. See "Packaging for production" below
 for more details.
 
-> Looking for **Vaadin 23 Gradle** version? See [vaadin-embedded-jetty-gradle](https://github.com/mvysny/vaadin-embedded-jetty-gradle)
-
-> Looking for **Vaadin 14 Maven** version? See [vaadin14-embedded-jetty](https://github.com/mvysny/vaadin14-embedded-jetty)
-
 ## Developing
 
-Clone this github repository and import the project to the IDE of your choice as a Maven project. You need to have Java 8 or 11 installed.
+Clone this github repository and import the project to the IDE of your choice as a Maven project. You need to have Java 11+ installed.
 
 To run quickly from the command-line in development mode:
 
-1. Run `./mvnw -C clean package exec:java`
+1. Run `./mvnw -C clean install && cd test-webapp && mvn exec:java`
 2. Your app will be running on [http://localhost:8080](http://localhost:8080).
 
 To run the app from your IDE:
 
 1. Import the project into your IDE
-2. Run `mvn -C clean package` in the project, to configure Vaadin for npm mode.
+2. Run `mvn -C clean install` in the project, to configure Vaadin for npm mode.
 3. Run/Debug the `Main` class as an application (run the `main()` method).
    The app will use npm to download all javascript libraries (will take a long time)
    and will start in development mode.
 4. Your app will be running on [http://localhost:8080](http://localhost:8080).
    
-See [Main.java](src/main/java/com/vaadin/starter/skeleton/Main.java)
+See [Main.java](test-webapp/src/main/java/com/vaadin/starter/skeleton/Main.java)
 for details on how Jetty is configured for embedded mode.
 
 ### Missing `/src/main/webapp`?
