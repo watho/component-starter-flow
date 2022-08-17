@@ -45,6 +45,7 @@ Advantages of the embedded setup:
 
 Disadvantages:
 * Changes done in `my-component.js` are not picked, you will have to re-launch the app.
+  * Neither hotswap-agent nor dcevm helps unfortunately
 
 ## Missing `/src/main/webapp`?
 
