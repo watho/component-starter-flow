@@ -91,6 +91,7 @@
     </build>
     <modules>
         <module>my-component</module>
+        <module>test-webapp</module>
         <module>test-webapp-embedded</module>
     </modules>
 </project>

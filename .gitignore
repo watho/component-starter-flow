@@ -14,6 +14,8 @@ target
 
 # The following files are generated/updated by vaadin-maven-plugin
 test-webapp-embedded/node_modules/
+test-webapp/node_modules/
 
 webpack.generated.js
 test-webapp-embedded/frontend/generated
+test-webapp/frontend/generated
