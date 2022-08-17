@@ -39,29 +39,13 @@
         <!-- Embedded Jetty dependencies -->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-continuation</artifactId>
-            <version>${jetty.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-server</artifactId>
+            <artifactId>jetty-webapp</artifactId>
             <version>${jetty.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty.websocket</groupId>
-            <artifactId>websocket-server</artifactId>
+            <artifactId>websocket-javax-server</artifactId>
             <version>${jetty.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty.websocket</groupId>
-            <artifactId>javax-websocket-server-impl</artifactId>
-            <version>${jetty.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.websocket</groupId>
-                    <artifactId>javax.websocket-client-api</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
 
