@@ -56,13 +56,8 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>${jetty.version}</version>
                 <configuration>
-                    <scanIntervalSeconds>3</scanIntervalSeconds>
-                    <!-- Use test scope because the UI/demo classes are in
-                            the test package. -->
-                    <useTestScope>true</useTestScope>
-                    <supportedPackagings>
-                        <supportedPackaging>jar</supportedPackaging>
-                    </supportedPackagings>
+                    <skip>false</skip>
+                    <scan>2</scan>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,10 +1,13 @@
 # Vaadin Component Starter
 
-An archetype for your reusable component projects. Introduces two Maven modules:
+An archetype for your reusable component projects. Introduces three Maven modules:
 * The actual component sources (both Java and JavaScript) placed in the [my-component](my-component) module;
   this module builds as a jar which you can publish to your Nexus and depend on in your projects.
-* A [test-webapp-embedded](test-webapp-embedded) which you use to run the component in Vaadin env, to
-  develop the component further. This module is not published anywhere, and it uses
+* A [test-webapp](test-webapp) is a webapp which runs the component itself, in order for you to
+  be able to develop the component further. This module is not published anywhere, and it uses
+  the Maven jetty plugin.
+* A [test-webapp-embedded](test-webapp-embedded) is a webapp which runs the component itself, in order for you to
+  be able to develop the component further. This module is not published anywhere, and it uses
   embedded jetty: it starts fast and you launch it as a simple `main()` method.
 
 Both the development and production modes are supported. Also, the project
@@ -16,12 +19,25 @@ for more details.
 
 Clone this github repository and import the project to the IDE of your choice as a Maven project. You need to have Java 11+ installed.
 
+### Jetty
+
+1. Run Jetty: `./mvnw -C jetty:run` from the command-line
+2. The test webapp will be running on [http://localhost:8080](http://localhost:8080).
+
+To develop the component on the fly:
+
+1. Import the project into your IDE
+2. Make changes to `MyComponent.java` or `my-component.js`
+3. Compile changes (IDEA: CTRL+F9)
+4. Jetty should be able to pick up the changes after two seconds, restart the webapp
+5. Reload the page in the browser
+
 ### Embedded
 
 To run quickly from the command-line in development mode:
 
 1. Run `./mvnw -C clean install && cd test-webapp-embedded && mvn exec:java`
-2. Your app will be running on [http://localhost:8080](http://localhost:8080).
+2. The test webapp will be running on [http://localhost:8080](http://localhost:8080).
 
 To run the app from your IDE:
 
@@ -39,7 +55,8 @@ Advantages of the embedded setup:
 
 * Starts fast
 * Easy to run and debug in any IDE
-* Changes in Java class files are picked in debug mode automatically - just reload the page to see the new version
+* Changes in Java class files are picked in debug mode automatically - rebuild the classes (IDEA: CTRL+F9)
+  then reload the page to see the new version.
   * Alternatively follow the [Vaadin hotswap-agent](https://vaadin.com/docs/latest/configuration/live-reload/hotswap-agent)
     tutorial for even better hot reload.
 
@@ -47,7 +64,7 @@ Disadvantages:
 * Changes done in `my-component.js` are not picked, you will have to re-launch the app.
   * Neither hotswap-agent nor dcevm helps unfortunately
 
-## Missing `/src/main/webapp`?
+#### Missing `/src/main/webapp`?
 
 Yeah, since we're not packaging to WAR but to uberjar/zip+jar, the `webapp` folder needs to be
 served from the jar itself, and therefore it needs to reside in `src/main/resources/webapp`.
