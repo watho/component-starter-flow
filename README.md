@@ -15,6 +15,8 @@ demoes packaging itself both into a flatten uberjar and a zip file containing
 a list of jars and a runner script. See "Packaging for production" below
 for more details.
 
+> Looking for Gradle version? [vaadin-component-gradle](https://github.com/mvysny/component-starter-gradle)
+
 ## Developing
 
 Clone this github repository and import the project to the IDE of your choice as a Maven project. You need to have Java 11+ installed.
