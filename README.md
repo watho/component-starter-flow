@@ -34,6 +34,8 @@ To develop the component on the fly:
 4. Jetty should be able to pick up the changes after two seconds, restart the webapp
 5. Reload the page in the browser
 
+Debugging: TODO
+
 ### Embedded
 
 To run quickly from the command-line in development mode:
@@ -49,7 +51,7 @@ To run the app from your IDE:
    The app will use npm to download all javascript libraries (will take a long time)
    and will start in development mode.
 4. Your app will be running on [http://localhost:8080](http://localhost:8080).
-   
+
 See [Main.java](test-webapp-embedded/src/main/java/com/vaadin/starter/skeleton/Main.java)
 for details on how Jetty is configured for embedded mode.
 
